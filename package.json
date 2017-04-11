@@ -1,8 +1,8 @@
 {
   "name": "mockshit",
   "version": "1.0.0",
-  "description": "Human-readable HTML mockup system with dirt simple routing and actions",
-  "main": "app.js",
+  "description": "Human-readable HTML mockup system with simple routing and actions",
+  "main": "mockshit.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
