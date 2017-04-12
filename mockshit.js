@@ -14,7 +14,7 @@ mockshit.components = {};
 mockshit.actions = {};
 
 // Helpers
-function getComponentMap(components) {
+mockshit.getComponentMap = function (components) {
   var map = {};
   for (var i = 0; i < components.length; i++) {
     map[components[i].id] = components[i];
@@ -22,25 +22,25 @@ function getComponentMap(components) {
   return map;
 }
 
-function getComponents() {
-  mockshit.components = getComponentMap(document.querySelectorAll('body [id]'));
+mockshit.getComponents = function () {
+  mockshit.components = mockshit.getComponentMap(document.querySelectorAll('body [id]'));
   console.log('found ' + Object.keys(mockshit.components).length + ' components', mockshit.components);
 }
 
-function getActions() {
+mockshit.getActions = function () {
   mockshit.actions = document.querySelectorAll('body [data-click]');
   console.log('found ' + Object.keys(mockshit.actions).length + ' actions', mockshit.actions);
 }
 
-function bindActions() {
+mockshit.bindActions = function () {
   for (var i = 0; i < mockshit.actions.length; i++) {
-    mockshit.actions[i].addEventListener('click', function() {
-      changeView(this.getAttribute('data-click'));
+    mockshit.actions[i].addEventListener('click', function () {
+      mockshit.changeView(this.getAttribute('data-click'));
     })
   }
 }
 
-function manageComponent(component, state) {
+mockshit.manageComponent = function (component, state) {
   var ref = mockshit.components[component];
   switch(state) {
     case 'in':
@@ -61,45 +61,41 @@ function manageComponent(component, state) {
   }
 }
 
-function updateComponents(currentComponents, newComponents) {
-  Object.keys(mockshit.components).forEach(function(component) {
+mockshit.updateComponents = function(currentComponents, newComponents) {
+  Object.keys(mockshit.components).forEach(function (component) {
     var isCurrent = currentComponents ? currentComponents.indexOf(component) > -1 : false,
         isNew = newComponents.indexOf(component) > - 1;
     if (!isCurrent && isNew) {
-      manageComponent(component, 'in');
+      mockshit.manageComponent(component, 'in');
     } else if (isCurrent && !isNew) {
-      manageComponent(component, 'out');
+      mockshit.manageComponent(component, 'out');
     } else if (isCurrent && isNew) {
-      manageComponent(component, 'visible')
+      mockshit.manageComponent(component, 'visible')
     } else if (!isCurrent && !isNew) {
-      manageComponent(component, 'hidden')
+      mockshit.manageComponent(component, 'hidden')
     }
   })
 }
 
-function changeView(newView) {
+mockshit.changeView = function (newView) {
   var currentComponents = mockshit.views[mockshit.currentView];
   var newComponents = mockshit.views[newView];
   console.log('changing view: ' + mockshit.currentView + ' (' + currentComponents + ') > ' + newView + ' (' + newComponents + ')');
-  updateComponents(currentComponents, newComponents);
+  mockshit.updateComponents(currentComponents, newComponents);
   mockshit.currentView = newView;
 }
 
 // Boot
-function bootMockshit() {
+mockshit.bootMockshit = function () {
   console.log('booting mockshit!');
   // Get all component elements
-  getComponents();
+  mockshit.getComponents();
   // Get all element actions
-  getActions();
+  mockshit.getActions();
   // Bind actions to elements
-  bindActions();
+  mockshit.bindActions();
   // Load first view
-  changeView(Object.keys(mockshit.views)[0]);
+  mockshit.changeView(Object.keys(mockshit.views)[0]);
 }
 
-mockshit.refresh = function() {
-
-}
-
-document.addEventListener('DOMContentLoaded', bootMockshit, false);
+document.addEventListener('DOMContentLoaded', mockshit.bootMockshit, false);

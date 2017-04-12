@@ -48,21 +48,23 @@ Either load the `mockshit.js` script before the end of your `</body>` tag or use
 
 <div id="content2">
   <h1>2!</h1>
-  <p>Det är ett välkänt faktum att läsare distraheras av läsbar text på en sida när man skall studera layouten.</p> 
+  <p>Det är ett välkänt faktum att läsare distraheras
+    av läsbar text på en sida när man skall studera layouten.</p> 
   <button data-click="view3">More next!</button>
 </div>
 
 <div id="content3">
   <h1>3!</h1>
-  <p>Nem csak 5 évszázadot élt túl, de az elektronikus betûkészleteknél is változatlanul megmaradt.</p>
+  <p>Nem csak 5 évszázadot élt túl, de az elektronikus
+    betûkészleteknél is változatlanul megmaradt.</p>
   <button data-click="view1">Go back!</button>
 </div>
 
 <div id="notice">But you suck!</div>
 
 <footer id="footer">&copy;2018</footer>
+
+<script src="mockshit.js"></script>
 </body>
 </html>
-
-
 ```
