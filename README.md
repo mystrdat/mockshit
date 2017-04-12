@@ -1,7 +1,7 @@
 # mockshit
 Mockshit. Offensively simple HTML/CSS mockup system with routing and actions.
 
-![Mockshit in action!](https://raw.githubusercontent.com/mystrdat/mockshit/demo.gif)
+![Mockshit in action!](https://github.com/mystrdat/mockshit/raw/master/demo.gif)
 
 Either load the `mockshit.js` script before the end of your `</body>` tag or use the provided `template.html` to do your thing.
 
