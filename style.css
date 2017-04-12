@@ -1,0 +1,89 @@
+/* defaults */
+.hidden { display: none; }
+.in { animation: fadeIn 300ms ease-out forwards; }
+.out { animation: fadeOut 300ms ease-in forwards; pointer-events: none; }
+body [id] { transition: all 300ms linear; }
+@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; }}
+@keyframes fadeOut { 0% { opacity: 1; } 100% { opacity: 0; }}
+/* /defaults */
+
+/* Mock */
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  position: relative;
+  margin: 0;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 18px;
+  letter-spacing: 2px; }
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  color: #fff;
+  background-color: brown;
+  text-align: center; }
+
+header span {
+  line-height: 60px;
+}
+
+footer, #notice {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  text-align: center;
+  background-color: orange; }
+
+footer {
+  background-color: orange; }
+
+#notice {
+  background-color: rebeccapurple; }
+
+.content {
+  height: 100%;
+  position: fixed;
+  top: 60px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  padding: 20px; }
+
+/* Transitions */
+
+.content.in {
+  animation-name: contentIn; }
+
+.content.out {
+  animation-name: contentOut; }
+
+#notice.in {
+  animation-name: noticeIn; }
+
+#notice.out {
+  animation-name: noticeOut; }
+
+@keyframes contentIn {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }}
+
+@keyframes contentOut {
+  100% { transform: translateX(-100%); }}
+
+@keyframes noticeIn {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }}
+
+@keyframes noticeOut {
+  100% { transform: translateY(100%); opacity: 0; }}

@@ -1,27 +1,12 @@
-# mockshit
-Mockshit. Offensively simple HTML/CSS mockup system with routing and actions.
-
-Either load the `mockshit.js` script before the end of your `</body>` tag or use the provided `template.html` to do your thing.
-
-`<script src="https://rawgit.com/mystrdat/mockshit/master/mockshit.js"></script>` 
-
-## Professional workflow
-
-- Write everything in one HTML file like a pig and style it 
-- Position some elements as `absolute` or `fixed` so they can overlap, the method requires it
-- Add an `id` to elements to make them "components", make sure it's unique
-- Provide a config object to show/hide components in fictious views (first loads as default)
-- Link between views with `data-click="view1"` attribute on any element (more actions coming!)
-- Use `.in` and `.out` classes when views change to animate components
-- Need dynamic data? No you don't, work around it
-- Learn to pretend it's not _that_ easy
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>mockshit</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
   <script>
     window.views = {
       view1: ['title1', 'content1', 'footer'],
@@ -38,19 +23,19 @@ Either load the `mockshit.js` script before the end of your `</body>` tag or use
   <span id="title3">Harry.</span>
 </header>
 
-<div id="content1">
+<div id="content1" class="content">
   <h1>1!</h1>
   <p>Glück Auf! Das famos Mundraub picheln.</p>
   <button data-click="view2">Next!</button>
 </div>
 
-<div id="content2">
+<div id="content2" class="content">
   <h1>2!</h1>
   <p>Det är ett välkänt faktum att läsare distraheras av läsbar text på en sida när man skall studera layouten.</p> 
   <button data-click="view3">More next!</button>
 </div>
 
-<div id="content3">
+<div id="content3" class="content">
   <h1>3!</h1>
   <p>Nem csak 5 évszázadot élt túl, de az elektronikus betûkészleteknél is változatlanul megmaradt.</p>
   <button data-click="view1">Go back!</button>
@@ -59,8 +44,7 @@ Either load the `mockshit.js` script before the end of your `</body>` tag or use
 <div id="notice">But you suck!</div>
 
 <footer id="footer">&copy;2018</footer>
+
+<script src="mockshit.js"></script>
 </body>
 </html>
-
-
-```

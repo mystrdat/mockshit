@@ -1,9 +1,9 @@
-var mockshit = {};
-mockshit.sitemap = {
-  view1: ['header', 'footer', 'content1'],
-  view2: ['header', 'footer', 'content2'],
-  view3: ['content3', 'footer'],
-  view4: ['content4', 'header']
+// Scope brutality
+var mockshit = window.mockshit = {};
+mockshit.views = window.views || {
+  view1: ['title1', 'content1', 'footer'],
+  view2: ['title2', 'content2', 'footer'],
+  view3: ['title3', 'content3', 'notice']
 };
 mockshit.allowed = {
   events: ['click', 'scroll'],
@@ -78,8 +78,8 @@ function updateComponents(currentComponents, newComponents) {
 }
 
 function changeView(newView) {
-  var currentComponents = mockshit.sitemap[mockshit.currentView];
-  var newComponents = mockshit.sitemap[newView];
+  var currentComponents = mockshit.views[mockshit.currentView];
+  var newComponents = mockshit.views[newView];
   console.log('changing view: ' + mockshit.currentView + ' (' + currentComponents + ') > ' + newView + ' (' + newComponents + ')');
   updateComponents(currentComponents, newComponents);
   mockshit.currentView = newView;
@@ -94,8 +94,12 @@ function bootMockshit() {
   getActions();
   // Bind actions to elements
   bindActions();
-  // Load first view in sitemap
-  changeView(Object.keys(mockshit.sitemap)[0]);
+  // Load first view
+  changeView(Object.keys(mockshit.views)[0]);
+}
+
+mockshit.refresh = function() {
+
 }
 
 document.addEventListener('DOMContentLoaded', bootMockshit, false);
