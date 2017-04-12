@@ -1,5 +1,5 @@
 # mockshit
-Mockshit. Offensively simple HTML/CSS mockup system with routing and actions.
+Mockshit. Offensively simple HTML/CSS mockup system with views and actions.
 
 ![Mockshit in action!](https://github.com/mystrdat/mockshit/raw/master/demo.gif)
 
