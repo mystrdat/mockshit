@@ -56,6 +56,7 @@ var mockshit = window.mockshit = {
         ref.classList.add('out');
         ['animationend', 'transitionend'].forEach(function (e) {
           _self.addEventListenerOnce(ref, e, function() {
+            ref.classList.remove('out');
             ref.classList.add('hidden');
           });
         });
