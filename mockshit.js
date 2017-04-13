@@ -29,11 +29,11 @@ var mockshit = window.mockshit = {
   },
   getComponents: function () {
     this.components = this.getComponentMap(document.querySelectorAll('body [id]'));
-    console.log('found ' + Object.keys(this.components).length + ' components', this.components);
+    console.info('found ' + Object.keys(this.components).length + ' components', this.components);
   },
   getActions: function () {
     this.actions = document.querySelectorAll('body [data-click]');
-    console.log('found ' + Object.keys(this.actions).length + ' actions', this.actions);
+    console.info('found ' + Object.keys(this.actions).length + ' actions', this.actions);
   },
   bindActions: function () {
     var _self = this;

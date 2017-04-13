@@ -8,6 +8,8 @@ body [id] { transition: all 300ms linear; }
 /* /defaults */
 
 /* Mock */
+*, *:before, *:after {
+  box-sizing: border-box; }
 
 html {
   height: 100%; }
@@ -32,6 +34,10 @@ header {
 
 header span {
   line-height: 60px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
 }
 
 footer, #notice {
@@ -52,10 +58,9 @@ footer {
   background-color: rebeccapurple; }
 
 .content {
-  height: 100%;
   position: fixed;
   top: 60px;
-  bottom: 60px;
+  bottom: 40px;
   left: 0;
   right: 0;
   padding: 20px; }
